@@ -60,7 +60,7 @@ while True:
     if count % 3 != 0:
         continue
     frame=cv2.resize(frame,(video_res_width,video_res_height))
-    results=model.predict(frame)
+    results=model.predict(frame, False,verbose=False)
     a=results[0].boxes.data
     px=pd.DataFrame(a).astype("float")
 
@@ -92,10 +92,12 @@ while True:
                       raise Exception("Could not write image")
                else:
                       print(image_name)
+                      #Converting cropped numberplate image to text
                       Num_plate_text=readImage.cropImage(image_name)
                       print(Num_plate_text)
                       veh_entrytime=datetime.datetime.now()
                       print(veh_entrytime)
+                      #Storing to the database table.
                       vehLogEntry.addEntry(Num_plate_text,str(veh_entrytime),'1')
                       vehLogEntry.select_all_tasks('vehicle_logging')
                car_count += 1
