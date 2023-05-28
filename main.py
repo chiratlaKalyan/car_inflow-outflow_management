@@ -99,14 +99,14 @@ while True:
                       print(veh_entrytime)
                       #Storing to the database table.
                       vehLogEntry.addEntry(Num_plate_text,str(veh_entrytime),'1')
-                      vehLogEntry.select_all_tasks('vehicle_logging')
+                      #vehLogEntry.select_all_tasks('vehicle_logging')
                car_count += 1
 
     cv2.line(frame, (cx1, cy1), (cx2, cy1), (255, 255, 255), 1)
     cv2.putText(frame, "Detecting Point", (cx1-offset, cy1), cv2.FONT_HERSHEY_COMPLEX, 0.8, (243, 250, 18), 1)
 
     cv2.imshow("BR Vehicle Tracking", frame)
-    if cv2.waitKey(0)&0xFF==26:
+    if cv2.waitKey(600) &0xFF==26:
         break
 
 cap.release()

@@ -23,6 +23,6 @@ class vehManagement:
           cur.execute("SELECT * FROM "+tableName)
 
           rows = cur.fetchall()
-
-          for row in rows:
-              print(row)
+          return rows
+          #for row in rows:
+          #    print(row)

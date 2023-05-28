@@ -27,7 +27,7 @@ class imgToText:
                  cv2.imwrite(cropped_image, gray_plates)
                  car_number_as_plate=self.extractText(cropped_image)
                  print(car_number_as_plate)
-                 cv2.waitKey(0)
+                 #cv2.waitKey(0)
                  loop=loop+1
              return car_number_as_plate
         #except:
